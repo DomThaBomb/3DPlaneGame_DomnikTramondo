@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerPawn : MonoBehaviour
 {
-
     public Rigidbody rb;
     public Transform tf;
 
@@ -20,21 +19,21 @@ public class PlayerPawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         rb = GetComponent<Rigidbody>();
         tf = GetComponent<Transform>();
 
         cameraComponent = GetComponent<CameraComponentScpt>();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void MoveForward()
     {
-        // Debug.Log("move forward");
+        Debug.Log("move forward");
 
         if (rb != null)
         {
@@ -44,11 +43,11 @@ public class PlayerPawn : MonoBehaviour
 
     public void MoveBackward()
     {
-        // Debug.Log("move backward");
+        Debug.Log("move backward");
 
         if (rb != null)
         {
-            rb.AddForce(-tf.forward * forceMagnitude);
+            rb.AddForce(tf.forward * -forceMagnitude);
         }
     }
 
