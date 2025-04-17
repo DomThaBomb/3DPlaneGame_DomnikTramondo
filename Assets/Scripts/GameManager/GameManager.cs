@@ -70,4 +70,9 @@ public class GameManager : MonoBehaviour
         DeactivateAllStates();
         gameplay.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+
+    }
 }

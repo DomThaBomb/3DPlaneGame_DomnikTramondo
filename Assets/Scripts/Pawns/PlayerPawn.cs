@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerPawn : MonoBehaviour
 {
     public Rigidbody rb;
     public Transform tf;
+    public AudioSource audioSource;
 
     // Camera Component
     public CameraComponentScpt cameraComponent;
@@ -39,6 +41,13 @@ public class PlayerPawn : MonoBehaviour
         {
             rb.AddForce(tf.forward * forceMagnitude);
         }
+        if (audioSource != null)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
     }
 
     public void MoveBackward()
@@ -49,6 +58,13 @@ public class PlayerPawn : MonoBehaviour
         {
             rb.AddForce(tf.forward * -forceMagnitude);
         }
+        if (audioSource != null)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
     }
 
     public void YawClockwise()
@@ -58,6 +74,13 @@ public class PlayerPawn : MonoBehaviour
         if (tf != null)
         {
             tf.Rotate(new Vector3(0,1,0) * rotationSpeed * Time.deltaTime);
+        }
+        if (audioSource != null)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
     }
     
